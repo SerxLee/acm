@@ -1,0 +1,145 @@
+1003
+#include <stdio.h>
+int a[100011];
+int s[100011];
+int sd[100011];
+
+int main(){
+    int t, k;
+    scanf("%d", &t);
+    for (k = 1; k <= t; k++) {
+        
+        int n, i, sum_max, end, start;
+        scanf("%d", &n);
+        for (i = 0; i < n; i++) {
+            scanf("%d", &a[i]);
+        }
+        for (sd[0] = 0, s[0] = a[0],i = 1; i < n; i++) {
+            if (s[i - 1] >= 0) {
+                s[i] = s[i - 1] + a[i];
+                sd[i] = sd[i - 1];
+            }else{
+                s[i] = a[i];
+                sd[i] = i;
+            }
+        }
+        for (i = 0; i < n; i++) {
+        }
+        
+        sum_max = s[0];
+        for (i = 1; i < n; i++) {
+            if (s[i] > sum_max) {
+                sum_max = s[i];
+                end = i;
+                start = sd[i];
+            }
+        }
+        printf("Case %d:\n", k);
+        printf("%d %d %d\n", sum_max, start + 1, end + 1);
+    }
+    return 0;
+}
+
+1009
+#include <stdio.h>
+
+struct pen{
+    int j, f;
+    double v;
+}a[1000];
+
+void quicksort(int l, int k){
+    if(l < k){
+        int i = l, j = k;
+        struct pen tmp = a[l];
+        while(i < j){
+            while(i < j && a[j].v <= tmp.v){
+                j--;
+            }
+            if(i < j){
+                a[i++] = a[j];
+            }
+            while(i < j && a[i].v >= tmp.v){
+                i++;
+            }
+            if(i < j){
+                a[j--] = a[i];
+            }
+        }
+        a[i] = tmp;
+        quicksort(l, i - 1);
+        quicksort(i + 1, k);
+    }
+}
+
+int main(){
+    int n, m;
+    while(scanf("%d%d", &m, &n) != EOF){
+        if (m == -1 && n == -1) {
+            break;
+        }
+        int i;
+        double p = 0;
+        for(i = 1; i <= n; i++){
+            scanf("%d%d", &a[i].j, &a[i].f);
+        }
+        for (i = 1; i <= n; i++) {
+            a[i].v = 1.0 * a[i].j / a[i].f;
+        }
+        quicksort(1, n);
+        for (i = 1; i <= n; i++) {
+            if (m > a[i].f) {
+                p += a[i].j;
+                m -= a[i].f;
+            }else{
+                p += a[i].v * m;
+                break;
+            }
+        }
+        printf("%0.3lf\n", p);
+    }
+    return 0;
+}
+
+1050
+#include <stdio.h>
+#include <string.h>
+
+void charu(int a[],int n);
+
+int main(){
+    int t;
+    scanf("%d", &t);
+    while (t--) {
+        int n, m, tt, j;
+        int a[202];
+        memset(a, 0, sizeof(a));
+        scanf("%d", &tt);
+        while (tt--){
+            scanf("%d%d", &n, &m);
+            if (n > m) {
+                j = m;
+                m = n;
+                n = j;
+            }
+            for (j = (n + 1) / 2; j <= (m + 1) / 2; j++) {
+                a[j]++;
+            }
+        }
+        charu(a, 202);
+        printf("%d\n", a[0] * 10);
+    }
+}
+
+void charu(int a[],int n)
+{
+    int i, j;
+    int tmp;
+    for (j = 1; j < n; j++) {
+        tmp = a[j];
+        for (i = j; i > 0 && a[i-1] < tmp; i--) {
+            a[i] = a[i-1];
+        }
+        a[i] = tmp;
+    }
+}
