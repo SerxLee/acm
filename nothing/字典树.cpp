@@ -11,7 +11,7 @@ Trie root;
 
 void create(char *str){
     int len = strlen(str);
-    Trie *p = &root,*q;
+    Trie *p = &root, *q;
     for (int i = 0; i < len; i++){
         int id = str[i]-'a';
         if (p->next[id] == NULL){

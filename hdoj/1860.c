@@ -5,8 +5,7 @@
 #define maxm 105
 #define maxn 105
 
-struct Edge
-{
+struct Edge{
     int v;
     int next;
     double rate;
@@ -80,8 +79,7 @@ int spfa(int s)
     return 0;
 }
 
-int main()
-{
+int main(){
     edge_cnt = 0;
     memset(head, -1, sizeof(head));
     scanf("%d%d%d%lf", &n, &m, &s, &v);
