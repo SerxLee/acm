@@ -33,14 +33,13 @@ const int MOD=95041567,STA=8000010;
 const double EPS=1e-8;
 const double OO=1e15;
 const int dx[8]={-1,1,-2,2,-2,2,-1,1};
-//{-1,0,1,0};
 const int dy[8]={-2,-2,-1,-1,1,1,2,2};
-//{0,1,0,-1};
 const int M = 12;
 
 
 int p,q;
 int way[M * M][3];
+
 int vis[M][M];
 
 bool inmap(int x, int y){
@@ -49,7 +48,6 @@ bool inmap(int x, int y){
     }
     return false;
 }
-
 int dfs(int tot, int now, int x, int y){
     int xx, yy;
     if (now == tot) {
