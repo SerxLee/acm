@@ -54,7 +54,6 @@ void dijkstra(){
     dis[0] = 0;
     vis[0] = 1;
     for (i = 0;i <= n; i++){
-        
         int temp = INF;
         mark = 0;
         
@@ -67,7 +66,7 @@ void dijkstra(){
         vis[mark] = j;
         
         for (j = 0; j <= n; j++){
-            if ((!vis[j]) &&(dis[mark] + bet[mark][j]) < dis[j]){
+            if ((!vis[j]) && (dis[mark] + bet[mark][j]) < dis[j]){
                 dis[j] = dis[mark] + bet[mark][j];
             }
         }

@@ -43,6 +43,7 @@ template<class T> inline T Max(T a,T b,T c){return max(max(a, b),c);}
 template<class T> inline T Min(T a,T b,T c,T d){return min(min(a, b),min(c,d));}
 template<class T> inline T Max(T a,T b,T c,T d){return max(max(a, b),max(c,d));}
 //End
+
 //归并排序 求逆序数 逆序数定义：
 //    一个数列中 若I < J,但是A[I]>A[J] ,  则A[I]与A[J]就互为逆序数。
 long long a[N], sum, b[N];

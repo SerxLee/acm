@@ -9,7 +9,7 @@
 int map[N][N],vis[N],dis[N];
 int n,s,e;
 
-void dijkstra(int s){
+void dijkstra(int s) {
     int i,j;
     memset(vis, 0, sizeof(vis));
     for(i = 0;i < n; i++){
@@ -17,18 +17,18 @@ void dijkstra(int s){
     }
     dis[s] = 0;
     vis[s] = 1;
-    for (i = 1;i < n; i++){
+    for (i = 1;i < n; i++) {
         int temp = INF;
         int u = s;
-        for (j = 0;j < n; j++){
-            if ((!vis[j]) && (dis[j] < temp)){
+        for (j = 0;j < n; j++) {
+            if ((!vis[j]) && (dis[j] < temp)) {
                 u = j;
                 temp = dis[j];
             }
         }
         vis[u]=1;
-        for (j = 0; j < n; j++){
-            if ((!vis[j]) &&(dis[u]+map[u][j]) < dis[j]){
+        for (j = 0; j < n; j++) {
+            if ((!vis[j]) &&(dis[u]+map[u][j]) < dis[j]) {
                 dis[j] = dis[u]+map[u][j];
             }
         }
@@ -36,14 +36,12 @@ void dijkstra(int s){
 }
 
 
-int main()
-{
+int main() {
     int i, j, m;
     char str[N][20], b_str[20], a_str[20];
-        while(scanf("%d%d", &n, &m) != EOF)
-    {
+        while(scanf("%d%d", &n, &m) != EOF) {
         for(i=0;i<n;i++){
-            for(j=0;j<n;j++){
+            for(j=0;j<n;j++) {
                 map[i][j]=INF;
             }
         }
@@ -51,8 +49,7 @@ int main()
             scanf("%s", str[i]);
         }
         int a,b,time;
-        for(i = 1; i <= m; i++)
-        {
+        for(i = 1; i <= m; i++) {
             scanf("%s%s%d", a_str, b_str, &time);
             printf("%s\n", a_str);
             printf("%s\n", b_str);

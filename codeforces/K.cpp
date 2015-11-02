@@ -27,29 +27,19 @@ template<class T> inline T Max(T a,T b){return a>b?a:b;}
 template<class T> inline void CheckMin(T &a,T b){if(a>b) a=b;}
 template<class T> inline void CheckMax(T &a,T b){if(a<b) a=b;}
 
-const int N = 250010;
-const int INF=0x3f3f3f3f;
-const int MOD=95041567,STA=8000010;
-const double EPS=1e-8;
-const double OO=1e15;
-const int dx[8]={-1,1,-2,2,-2,2,-1,1};
-const int dy[8]={-2,-2,-1,-1,1,1,2,2};
-const int M = 12;
-
-int myarr[202][202];
+double p, a, b, c, d, n;
 
 int main(){
-	int n;
-	cin >> n;
-	for (int i = 1; i < n ;i++){
-		for (int j = 1; j < i; j++){
-			cin >> myarr[i][j];
+	while (cin  >> p >> a >> b >> c >> d >> n){
+		double bb = 0;
+		int si, co;
+		for (int i = 1; i <= n; i++){
+			si = sin(a * i + b);
+			co = cos(c * k + d);
+			double lim = p * ( si + co + 2);
+			bb = Max(bb, lim);
 		}
+		cout << bb << endl;	
 	}
-	for (int i = n - 1; i >= 0; i--){
-		for (int j = 1; j <= i; j++){
-			myarr[i][j] += Max(myarr[i - 1][j], myarr[i][j + 1]);
-		}
-	}
-	cout << myarr[1][1] << endl;
+	return 0;
 }

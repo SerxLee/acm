@@ -37,13 +37,13 @@ int n, m;
 int father[1005];
 
 int getfather(int v){    //路径压缩（采用递归的方式压缩路径， 但是，递归压缩路径可能会造成溢出栈）
-    if (father[v] == v)  //Accepted    1213    15MS    296K    1569 B  G++ Serx......Lee
+    if (father[v] == v)
         return v;
     return father[v] = getfather(father[v]);
 }
 
 int getfather(int v){   //路径压缩，非递归方式
-    int k, j ,r;        //Accepted    1213    0MS 296K    1818 B  G++ Serx......Lee 
+    int k, j ,r;
     r = v;
     while (r != father[r]) {
         r = father[r];
